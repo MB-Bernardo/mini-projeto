@@ -42,13 +42,21 @@ void main(){
     }
 
   double media = somaPendente / tarefasPendentes.length;
-  
-
-
-
   print('');
   print('Media das tarefas pendentes:');
   print(media);
+
+  Set<String> statusUnicos = {};
+   for (var tarefa in tarefas) {
+    statusUnicos.add(tarefa.status);
+
+  }
+
+  print('');
+  print('Status unicos:');
+  print(statusUnicos);
+
+
 
 
 
