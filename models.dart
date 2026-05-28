@@ -2,8 +2,8 @@
 
 
 class ItemTrabalho {
-  int id;
-  String titulo;
+  final int id;
+  final String titulo;
 
 
 
@@ -20,11 +20,11 @@ class ItemTrabalho {
 class Tarefa extends ItemTrabalho {
 
 
-  String responsavel;
-  String status;
-  String prioridade;
-  double valor;
-  int horas;
+  final String responsavel;
+  final String status;
+  final String prioridade;
+  final double valor;
+  final int horas;
 
   Tarefa({
     required int id,
