@@ -13,14 +13,30 @@ void main(){
   for (var tarefa in tarefas){
     tarefa.exibirResumo();
   }
+ 
+List<String> titulos =
+    tarefas.map((tarefa) => tarefa.titulo).toList();
 
-  List<Tarefa> tarefasConcluidas = 
+print('');
+print('Titulos das tarefas:');
+
+for (var titulo in titulos) {
+  print(titulo);
+}
+
+bool todasTemTitulo =
+    tarefas.every((tarefa) => tarefa.titulo != '');
+
+print('');
+print('Todas as tarefas possuem titulo? $todasTemTitulo');
+
+List<Tarefa> tarefasConcluidas =
   tarefas.where((tarefa){
     return tarefa.status == 'concluida';
   }).toList();
 
  
-  
+
 
   double somaValores = 0;
   for(var tarefa in tarefasConcluidas){
@@ -44,15 +60,42 @@ void main(){
     statusUnicos.add(tarefa.status);
 
   }
+  List<Tarefa> tarefasAndamento =
+tarefas.where((tarefa){
+  return tarefa.status == 'em andamento';
+}).toList();
 
-  
+List<Tarefa> tarefasCanceladas =
+tarefas.where((tarefa){
+  return tarefa.status == 'cancelada';
+}).toList();
+ 
+ int horasAndamento = 0;
 
-  int horasConcluidas = 0;
+for (var tarefa in tarefasAndamento) {
+  horasAndamento += tarefa.horas;
+}
+
+int horasPendentes = 0;
+
+for (var tarefa in tarefasPendentes) {
+  horasPendentes += tarefa.horas;
+}
+
+int horasCanceladas = 0;
+
+for (var tarefa in tarefasCanceladas) {
+  horasCanceladas += tarefa.horas;
+}
+
+
+ int horasConcluidas = 0;
   for (var tarefa in tarefasConcluidas){
     horasConcluidas += tarefa.horas;
 
   }
-   
+
+ 
 
 
   
@@ -97,6 +140,15 @@ print('Tarefas concluidas: $totalConcluidas');
 print('Tarefas pendentes: $totalPendentes');
 print('Tarefas em andamento: $totalAndamento');
 print('Tarefas canceladas: $totalCanceladas');
+
+
+ print('');
+print('Horas por status:');
+print('concluida: $horasConcluidas horas');
+print('em andamento: $horasAndamento horas');
+print('pendente: $horasPendentes horas');
+print('cancelada: $horasCanceladas horas');
+   
 
 print('');
 print('Valor total das concluidas: R\$ $somaValores');
