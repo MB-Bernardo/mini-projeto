@@ -116,8 +116,8 @@ for (var tarefa in tarefas) {
 
   if (
     tarefa.titulo == '' ||
-    tarefa.responsavel == 'Não informado' ||
-    tarefa.valor == 0
+    tarefa.responsavel == 'Não informado'
+    
   ) {
 
     if (tarefa.titulo == '') {
