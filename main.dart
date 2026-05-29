@@ -56,6 +56,28 @@ void main(){
   print('Status unicos:');
   print(statusUnicos);
 
+  int horasConcluidas = 0;
+  for (var tarefa in tarefasConcluidas){
+    horasConcluidas += tarefa.horas;
+
+  }
+   print('');
+   print ('total de horas concluidas');
+   print(horasConcluidas);
+
+
+   print('');
+   print('tarefas com dados imcompletos');
+   for (var tarefa in tarefas) {
+   if (
+    tarefa.titulo == '' ||
+    tarefa.responsavel == 'Não informado' || 
+    tarefa.valor == 0
+   ){
+    tarefa.exibirResumo();
+   }
+   }
+
 
 
 
