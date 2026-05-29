@@ -19,18 +19,14 @@ void main(){
     return tarefa.status == 'concluida';
   }).toList();
 
-  print('Tarefas concluidas:');
-
-  for(var tarefa in tarefasConcluidas){
-    tarefa.exibirResumo();
-  }
+ 
+  
 
   double somaValores = 0;
   for(var tarefa in tarefasConcluidas){
     somaValores += tarefa.valor;
   }
-  print('Valor total das tarefas concluidas:');
-  print('R\$ $somaValores');
+  
 
   List<Tarefa> tarefasPendentes = 
   tarefas.where((tarefa){
@@ -42,41 +38,99 @@ void main(){
     }
 
   double media = somaPendente / tarefasPendentes.length;
-  print('');
-  print('Media das tarefas pendentes:');
-  print(media);
-
+  
   Set<String> statusUnicos = {};
    for (var tarefa in tarefas) {
     statusUnicos.add(tarefa.status);
 
   }
 
-  print('');
-  print('Status unicos:');
-  print(statusUnicos);
+  
 
   int horasConcluidas = 0;
   for (var tarefa in tarefasConcluidas){
     horasConcluidas += tarefa.horas;
 
   }
-   print('');
-   print ('total de horas concluidas');
-   print(horasConcluidas);
+   
 
 
-   print('');
-   print('tarefas com dados imcompletos');
-   for (var tarefa in tarefas) {
-   if (
+  
+
+   int totalConcluidas = 0;
+
+for (var tarefa in tarefas) {
+  if (tarefa.status == 'concluida') {
+    totalConcluidas++;
+  }
+}
+
+int totalPendentes = 0;
+
+for (var tarefa in tarefas) {
+  if (tarefa.status == 'pendente') {
+    totalPendentes++;
+  }
+}
+int totalAndamento = 0;
+
+for (var tarefa in tarefas) {
+  if (tarefa.status == 'em andamento') {
+    totalAndamento++;
+  }
+}
+int totalCanceladas = 0;
+
+for (var tarefa in tarefas) {
+  if (tarefa.status == 'cancelada') {
+    totalCanceladas++;
+  }
+}
+
+
+print('');
+print('RELATORIO FINAL DE TAREFAS');
+
+print('');
+print('Total de tarefas analisadas: 7');
+print('Tarefas concluidas: $totalConcluidas');
+print('Tarefas pendentes: $totalPendentes');
+print('Tarefas em andamento: $totalAndamento');
+print('Tarefas canceladas: $totalCanceladas');
+
+print('');
+print('Valor total das concluidas: R\$ $somaValores');
+print('Media de valor das pendentes: R\$ $media');
+print('Total de horas concluidas: $horasConcluidas');
+
+print('');
+print('Status encontrados:');
+
+for (var status in statusUnicos) {
+  print(status);
+}
+print('');
+print('Tarefas com dados incompletos:');
+
+for (var tarefa in tarefas) {
+
+  if (
     tarefa.titulo == '' ||
-    tarefa.responsavel == 'Não informado' || 
+    tarefa.responsavel == 'Não informado' ||
     tarefa.valor == 0
-   ){
-    tarefa.exibirResumo();
-   }
-   }
+  ) {
+
+    if (tarefa.titulo == '') {
+      print('ID ${tarefa.id} - Sem título');
+    } else {
+      print('ID ${tarefa.id} - ${tarefa.titulo}');
+    }
+
+  }
+}
+
+
+  
 
 
 
