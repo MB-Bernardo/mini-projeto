@@ -42,10 +42,10 @@ class Tarefa extends ItemTrabalho {
     factory Tarefa.fromMap(Map<String, dynamic> item) {
     return Tarefa(
       id: item['id'] ?? 0,
-      titulo: item['titulo'] ?? 'Sem titulo',
-      responsavel: item['responsavel'] ?? 'Não informado',
-      status: item['status'] ?? 'Sem status',
-      prioridade: item['prioridade'] ?? 'Sem prioridade',
+      titulo: (item['titulo'] ?? 'Sem titulo').trim(),
+      responsavel: (item['responsavel'] ?? 'Não informado').trim(),
+      status: (item['status'] ?? 'Sem status').trim(),
+      prioridade: (item['prioridade'] ?? 'Sem prioridade').trim(),
 
 
       valor: tratarValores(item['valor']),
