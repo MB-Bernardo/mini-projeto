@@ -4,7 +4,9 @@ import 'models.dart';
 
 void main(){
   List<Tarefa> tarefas = [];
+
   for (var item in dadosTarefas) {
+    
     Tarefa tarefa = Tarefa.fromMap(item);
 
     tarefas.add(tarefa);
@@ -49,12 +51,17 @@ List<Tarefa> tarefasConcluidas =
     return tarefa.status == 'pendente';
   }).toList();
   double somaPendente = 0;
-  for(var tarefa in tarefasPendentes){
-    somaPendente += tarefa.valor;
-    }
+int quantidadePendentes = 0;
 
-  double media = somaPendente / tarefasPendentes.length;
-  
+for (var tarefa in tarefasPendentes) {
+  somaPendente += tarefa.valor;
+  quantidadePendentes++;
+}
+
+double media = somaPendente / quantidadePendentes;
+
+
+ 
   Set<String> statusUnicos = {};
    for (var tarefa in tarefas) {
     statusUnicos.add(tarefa.status);

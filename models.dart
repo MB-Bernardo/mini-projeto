@@ -43,6 +43,7 @@ class Tarefa extends ItemTrabalho {
     );
      String get status => _status;
      double get valor => _valor;
+     
 
     factory Tarefa.fromMap(Map<String, dynamic> item) {
     return Tarefa(
