@@ -60,7 +60,7 @@ dart run main.dart
 
 ## Autor
 
-Manoel Bernardo do Carmo Neto
+Manoel Bernardo
 
 ## Links
 
